@@ -1,0 +1,3 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+TDAnalyze = "1feb10ce-27b0-4602-8644-47e2eacc7a3e"
