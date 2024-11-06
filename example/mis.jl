@@ -9,3 +9,5 @@ code = prob.code.eins
 contraction_complexity(code, uniformsize(code, 2^10))
 tree = decompose(code)
 width(tree) + 1
+
+@assert is_treedecomposition(g0, tree)
