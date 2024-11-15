@@ -1,3 +1,9 @@
+using OMEinsum, GenericTensorNetworks, TreeWidthSolver
+using GenericTensorNetworks.Graphs
+
+using Random
+Random.seed!(1234)
+
 @testset "tree decomposition" begin
     g0 = random_regular_graph(100, 3)
 

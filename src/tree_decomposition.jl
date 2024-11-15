@@ -1,9 +1,9 @@
-using OMEinsum: isleaf, getixsv, getiyv, LeafString, flatten
+using OMEinsum: getixsv, getiyv, LeafString, flatten
 
 # transform optimized eincode to elimination order
 function eincode2order(code::NestedEinsum{L}) where {L}
     elimination_order = Vector{L}()
-    isleaf(code) && return elimination_order
+    OMEinsum.isleaf(code) && return elimination_order
     for node in PostOrderDFS(code)
         (node isa LeafString) && continue
         for id in setdiff(vcat(getixsv(node.eins)...), getiyv(node.eins))
@@ -34,4 +34,16 @@ function decompose(code::NestedEinsum{L}) where {L}
     order = eincode2order(code)
     labels = [id_dict[id] for id in order]
     return decomposition_tree(g, labels)
+end
+
+function max_bag(tree::DecompositionTreeNode)
+    max_bag = tree
+    max_size = length(max_bag.bag)
+    for node in PostOrderDFS(tree)
+        if length(node.bag) > max_size
+            max_bag = node
+            max_size = length(node.bag)
+        end
+    end
+    return max_bag
 end
