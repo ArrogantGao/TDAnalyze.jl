@@ -11,11 +11,12 @@ TreeWidthSolver = "7d267fc5-9ace-409f-a54c-cd2374872a55"
 [compat]
 GenericTensorNetworks = "2.2.0"
 OMEinsum = "0.8.4"
+TreeWidthSolver = "0.3"
 julia = "1.6.7"
 
 [extras]
-Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
 test = ["Test", "Random"]
